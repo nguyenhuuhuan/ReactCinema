@@ -38,7 +38,7 @@ class ApplicationContext {
   getAuthenticator(): AuthenService<User> {
     if (!this.authenticator) {
       const c = this.getConfig();
-      this.authenticator = new AuthenClient<User>(httpRequest, c.authentication_url + '/authenticate');
+      this.authenticator = new AuthenClient<User>(httpRequest, c.authentication_url + '/authentication');
     }
     return this.authenticator;
   }

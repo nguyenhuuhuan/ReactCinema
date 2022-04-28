@@ -33,7 +33,7 @@ export class ProfileClient implements ProfileService {
     });
   }
   getMySettings(id: string): Promise<UserSettings | null> {
-    const url = this.url + '/' + id + '/settings';
+    const url = this.url + '/' + 'settings/' + id;
     return this.http.get<UserSettings>(url).catch(err => {
       const data = (err &&  err.response) ? err.response : err;
       if (data && (data.status === 404 || data.status === 410)) {
