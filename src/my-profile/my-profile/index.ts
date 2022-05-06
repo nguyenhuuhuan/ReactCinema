@@ -56,7 +56,7 @@ export class MyProfileClient implements MyProfileService {
     });
   }
   saveMyProfile(data: User): Promise<number> {
-    return this.http.patch<number>(this.url, data).catch(err => {
+    return this.http.patch<number>(this.url + '/' + data.id, data).catch(err => {
       const data = (err && err.response) ? err.response : err;
       if (data && (data.status === 404 || data.status === 410)) {
         return 0;
